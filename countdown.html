@@ -44,6 +44,7 @@ a:hover {
 }
 </style>
 
+<script language="javascript" src="serverTime.js"></script>
 <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/National_Telecommunications_Commission.svg/1200px-National_Telecommunications_Commission.svg.png" type="image/png">
 <title>REDIRECT NOTICE</title>
 
@@ -62,9 +63,7 @@ var countDownDate = new Date("Mar 13, 2019 12:30:00").getTime();
 
 var x = setInterval(function() {
 
-  var now = new Date().getTime();
-
-  var distance = countDownDate - now;
+  var distance = countDownDate - date;
 
   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
