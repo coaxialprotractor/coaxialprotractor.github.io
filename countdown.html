@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#bgvid {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  pointer-events:none;
+}
+.content {
+  position: absolute;
+  margin: auto;
+  right: 12.5%;
+  background-color: rgba(0, 0, 0, 0.5);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  top: 50%;
+  width: 75%;
+}
+p {
+  font-family: "Courier New", Courier, monospace;
+  color: white;
+  text-align: center;
+  font-size: 60px;
+}
+h1 {
+  color: white;
+  text-align: center;
+}
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+}
+a#link {
+  text-decoration: none;
+}
+a:hover {
+  color: #ffb535;
+}
+</style>
+
+<link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/National_Telecommunications_Commission.svg/1200px-National_Telecommunications_Commission.svg.png" type="image/png">
+<title>REDIRECT NOTICE</title>
+
+</head>
+<body>
+
+<video autoplay muted loop id="bgvid">
+  <source src="assets/eas-final.mp4" type="video/mp4">
+</video>
+
+<div class="content">
+<a id="link"><p id="lambda"></p></a>
+
+<script>
+var countDownDate = new Date("Mar 13, 2019 12:30:00").getTime();
+
+var x = setInterval(function() {
+
+  var now = new Date().getTime();
+
+  var distance = countDownDate - now;
+
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  document.getElementById("lambda").innerHTML = days + ":" + hours + ":"
+  + minutes + ":" + seconds + " ";
+
+  if (days < 1) {
+    const audio = document.getElementById("player");
+    audio.pause();
+    audio.currentTime = 0;
+  }
+
+  if (days < 1) {
+    const audio = document.getElementById("player2")
+    audio.play();
+  }
+
+  if (seconds < 0) {
+    const audio = document.getElementById("player2");
+    audio.pause();
+    audio.currentTime = 0;
+  }
+
+  if (distance < 0) {
+    const audio = document.getElementById("distortion")
+    audio.play();
+  }
+
+  if (distance < 0) {
+    const audio = document.getElementById("payload")
+    audio.play();
+  }
+
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("lambda").innerHTML = "YOU ARE NOT SAFE";
+    document.getElementById("lambda").style.color = "red";
+    document.getElementById("link").href = "https://www.youtube.com/watch?v=iVvszwUoBaA";
+    document.getElementById("link").target = "_blank";
+  }
+
+  if (distance < 0) {
+    document.getElementById("warn").innerHTML = "EXIT THIS WEBPAGE IMMEDIATELY FOR YOUR SAFETY";
+  }
+}, 1000);
+</script>
+
+<h1 id="warn">ACCESS TO THIS WEBPAGE HAS BEEN BLOCKED BY ORDER OF THE<br>NATIONAL TELECOMMUNICATIONS COMMISSION OF THE PHILIPPINES</h1>
+
+<a href="http://ntc.gov.ph/">
+<h1>ntc.gov.ph</h1>
+</a>
+</div>
+
+<iframe src="assets/silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+
+<audio id="player" autoplay loop>
+    <source src="assets/eas-warning.mp3" type="audio/mp3">
+</audio>
+
+<audio id="player2" loop>
+    <source src="assets/eas-warning-2.mp3" type="audio/mp3">
+</audio>
+
+<audio id="distortion">
+    <source src="assets/distortion.mp3" type="audio/mp3">
+</audio>
+
+<audio id="payload" loop>
+    <source src="assets/win.mp3" type="audio/mp3">
+</audio>
+
+</body>
+</html>
