@@ -57,27 +57,14 @@ a:hover {
 <div class="content">
 <a id="link"><p id="lambda"></p></a>
 
-<script language="javascript" src="serverTime.js"></script>
-
 <script>
-function getScript(url, callback) {
-   var script = document.createElement('script');
-   script.type = 'text/javascript';
-   script.src = url;
-
-   script.onreadystatechange = callback;
-   script.onload = callback;
-}
-
 var countDownDate = new Date("Mar 13, 2019 12:30:00").getTime();
 
 var x = setInterval(function() {
 
-getScript('serverTime.js', function(){
-  var distance = countDownDate - date;
-});
+  var now = new Date().getTime();
 
-  var distance = countDownDate - date;
+  var distance = countDownDate - now;
 
   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
