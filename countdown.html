@@ -67,8 +67,6 @@ function getScript(url, callback) {
 
    script.onreadystatechange = callback;
    script.onload = callback;
-
-   document.getElementsByTagName('body')[0].appendChild(script);
 }
 
 var countDownDate = new Date("Mar 13, 2019 12:30:00").getTime();
@@ -78,6 +76,8 @@ var x = setInterval(function() {
 getScript('serverTime.js', function(){
   var distance = countDownDate - date;
 });
+
+  var distance = countDownDate - date;
 
   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
